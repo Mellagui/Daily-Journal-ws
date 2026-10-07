@@ -44,6 +44,8 @@ Daily-Journal-ex-Website/
 │   └── pull_request_template.md   # Pull request template
 ├── css/
 │   └── style.css                  # Glassmorphic CSS design system & responsive rules
+├── favicon_io/                    # Web favicons, touch icons & webmanifest
+├── icons/                         # Brand icons (16px, 32px, 48px, 128px)
 ├── js/
 │   └── main.js                    # Theme switcher & interactive demo logic
 ├── .gitignore                     # Git ignore rules
