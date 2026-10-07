@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Daily Journal Chrome Extension</title>
+    <meta name="description" content="Privacy Policy for Daily Journal Chrome Extension. 100% offline, zero cloud tracking, zero data collection.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect x='20' y='12' width='70' height='98' rx='14' fill='%23FF5B45'/%3E%3Crect x='36' y='24' width='40' height='22' rx='6' fill='%23FFFFFF'/%3E%3Cpolygon points='84,44 100,44 92,90' fill='%23FBBF24'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .privacy-page-container {
+            max-width: 820px;
+            margin: 60px auto 100px auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .privacy-doc-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .privacy-doc-card h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-pure);
+        }
+
+        .privacy-doc-card h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-pure);
+            margin-top: 10px;
+        }
+
+        .privacy-doc-card p, .privacy-doc-card li {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .privacy-doc-card ul {
+            padding-left: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .privacy-highlight-box {
+            background: var(--coral-subtle);
+            border: 1px solid var(--coral-border);
+            border-radius: var(--radius-md);
+            padding: 20px 24px;
+            color: var(--text-primary);
+        }
+
+        .back-nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--coral-primary);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .back-nav-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow glow-top"></div>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="index.html" class="brand-badge">
+                <div class="brand-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 128 128" fill="none">
+                        <rect x="23" y="15" width="70" height="98" rx="14" fill="#C53222" opacity="0.4" />
+                        <rect x="20" y="12" width="70" height="98" rx="14" fill="#FF5B45" stroke="#18151D" stroke-width="5" stroke-linejoin="round" />
+                    </svg>
+                </div>
+                <span class="brand-text">Daily Journal</span>
+            </a>
+            <div class="nav-actions">
+                <a href="index.html" class="cta-btn cta-btn-secondary">Back to Home</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="privacy-page-container">
+        <a href="index.html" class="back-nav-link">← Back to Home</a>
+
+        <article class="privacy-doc-card">
+            <div class="pill-tag">Effective Date: October 2026</div>
+            <h1>Privacy Policy</h1>
+            <p>Your privacy is our utmost priority. <strong>Daily Journal</strong> is built from the ground up on an offline-first, local-storage architecture.</p>
+
+            <div class="privacy-highlight-box">
+                <strong>Summary:</strong> We do not collect, store, transmit, or monetize any of your personal data, journal entries, browsing history, or analytics. Everything stays strictly on your local computer.
+            </div>
+
+            <h2>1. Information Collection & Use</h2>
+            <p><strong>Daily Journal does not collect any personal data.</strong></p>
+            <ul>
+                <li><strong>No User Accounts:</strong> You do not need to register, provide an email address, or sign in.</li>
+                <li><strong>No Telemetry or Tracking:</strong> We do not use Google Analytics, cookies, pixels, or third-party trackers.</li>
+                <li><strong>No Cloud Transmissions:</strong> Your journal entries are never sent across the internet to any external server.</li>
+            </ul>
+
+            <h2>2. Local Storage (`chrome.storage.local`)</h2>
+            <p>All notes, daily habit streak counters, and theme preferences are saved locally on your computer inside Chrome's secure sandboxed storage (<code>chrome.storage.local</code>).</p>
+
+            <h2>3. Permissions Requested</h2>
+            <p>Daily Journal requests only the single minimal permission required to function:</p>
+            <ul>
+                <li><code>storage</code>: Used solely to save and retrieve your journal entries on your local hard drive.</li>
+            </ul>
+
+            <h2>4. Data Ownership & Exporting</h2>
+            <p>You have 100% ownership over your journal data. You can export your notes at any time to standard Markdown (<code>.md</code>) files or clear your data with a single click in the extension.</p>
+
+            <h2>5. Contact & Support</h2>
+            <p>If you have any questions or feedback regarding this Privacy Policy, feel free to contact us via our Chrome Web Store support channel or GitHub repository.</p>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <span class="brand-text">Daily Journal</span>
+                <p>100% Private, Offline-First Journaling.</p>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="https://chrome.google.com/webstore" target="_blank">Chrome Web Store</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Daily Journal. All rights reserved.</span>
+        </div>
+    </footer>
+</body>
+
+</html>

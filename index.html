@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Journal - Minimalist Chrome Extension for Mindful Daily Writing</title>
+    <meta name="description"
+        content="An elegant, distraction-free daily journaling Chrome extension with authentic ruled paper lines, streak habit tracking, calendar history, and 1-click Markdown export. 100% offline & private.">
+    <meta name="keywords"
+        content="chrome extension, daily journal, minimalist diary, habit tracker, privacy note app, markdown journal, offline notes">
+    
+    <!-- Open Graph / Meta -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Daily Journal - Minimalist Chrome Extension">
+    <meta property="og:description"
+        content="Pour your thoughts and build a consistent writing habit directly in your browser. 100% private and offline.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Crect x='20' y='12' width='70' height='98' rx='14' fill='%23FF5B45'/%3E%3Crect x='36' y='24' width='40' height='22' rx='6' fill='%23FFFFFF'/%3E%3Cpolygon points='84,44 100,44 92,90' fill='%23FBBF24'/%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Ambient Background Glows -->
+    <div class="ambient-glow glow-top"></div>
+    <div class="ambient-glow glow-bottom"></div>
+
+    <!-- Navigation Header -->
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="#" class="brand-badge">
+                <div class="brand-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 128 128" fill="none">
+                        <rect x="23" y="15" width="70" height="98" rx="14" fill="#C53222" opacity="0.4" />
+                        <rect x="20" y="12" width="70" height="98" rx="14" fill="url(#coralCoverGrad)" stroke="#18151D" stroke-width="5" stroke-linejoin="round" />
+                        <path d="M82 22C84.2 22 86 23.8 86 26V58C86 60.2 84.2 62 82 62C79.8 62 78 60.2 78 58V26C78 23.8 79.8 22 82 22Z" fill="#FFFFFF" opacity="0.75" />
+                        <rect x="36" y="24" width="40" height="22" rx="6" fill="#F8FAFC" stroke="#18151D" stroke-width="4.5" />
+                        <line x1="46" y1="32" x2="66" y2="32" stroke="#18151D" stroke-width="3.5" stroke-linecap="round" />
+                        <line x1="46" y1="38" x2="60" y2="38" stroke="#18151D" stroke-width="3.5" stroke-linecap="round" />
+                        <line x1="14" y1="28" x2="26" y2="28" stroke="#18151D" stroke-width="6" stroke-linecap="round" />
+                        <line x1="14" y1="52" x2="26" y2="52" stroke="#18151D" stroke-width="6" stroke-linecap="round" />
+                        <line x1="14" y1="76" x2="26" y2="76" stroke="#18151D" stroke-width="6" stroke-linecap="round" />
+                        <line x1="14" y1="98" x2="26" y2="98" stroke="#18151D" stroke-width="6" stroke-linecap="round" />
+                        <defs>
+                            <linearGradient id="coralCoverGrad" x1="20" y1="12" x2="90" y2="110" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FF6B4E" />
+                                <stop offset="1" stop-color="#F03D2B" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="brand-text">Daily Journal</span>
+            </a>
+
+            <nav class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#interactive-demo" class="nav-link">Live Demo</a>
+                <a href="#privacy" class="nav-link">Privacy</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle-btn" class="icon-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle Theme">
+                    <svg id="theme-icon-sun" class="hidden" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5" />
+                        <line x1="12" y1="1" x2="12" y2="3" />
+                        <line x1="12" y1="21" x2="12" y2="23" />
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                        <line x1="1" y1="12" x2="3" y2="12" />
+                        <line x1="21" y1="12" x2="23" y2="12" />
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+                    </svg>
+                    <svg id="theme-icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                    </svg>
+                </button>
+                <a href="https://chrome.google.com/webstore" target="_blank" class="cta-btn cta-btn-header">
+                    <span>Add to Chrome</span>
+                    <span class="cta-badge">Free</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="pill-tag">
+                    <span class="pill-dot"></span>
+                    <span>100% Offline • Zero Tracking • Free Chrome Extension</span>
+                </div>
+                
+                <h1 class="hero-headline">
+                    Pour Your Thoughts.<br>
+                    <span class="gradient-text">Build a Daily Writing Ritual.</span>
+                </h1>
+
+                <p class="hero-subtext">
+                    An aesthetic, distraction-free daily diary nestled right inside your browser. Featuring authentic ruled notebook lines, habit streak tracking, monthly calendar archives, and 1-click Markdown exports.
+                </p>
+
+                <div class="hero-cta-group">
+                    <a href="https://chrome.google.com/webstore" target="_blank" class="cta-btn cta-btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="4"/>
+                            <line x1="21.17" y1="8" x2="12" y2="8" stroke="currentColor" stroke-width="2"/>
+                            <line x1="3.95" y1="6.06" x2="8.54" y2="14" stroke="currentColor" stroke-width="2"/>
+                            <line x1="10.88" y1="21.94" x2="15.46" y2="14" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>Add to Chrome — It's Free</span>
+                    </a>
+                    <a href="#interactive-demo" class="cta-btn cta-btn-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                        <span>Try Interactive Demo</span>
+                    </a>
+                </div>
+
+                <div class="hero-trust-badges">
+                    <div class="trust-item">
+                        <span class="trust-icon">🔒</span>
+                        <span>100% Local Storage</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">⚡</span>
+                        <span>Instant Auto-Save</span>
+                    </div>
+                    <div class="trust-item">
+                        <span class="trust-icon">📥</span>
+                        <span>Markdown Backup</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Live Mockup -->
+            <div id="interactive-demo" class="hero-preview-container">
+                <div class="mockup-frame">
+                    <div class="mockup-header-bar">
+                        <div class="mockup-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="mockup-address-bar">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            <span>chrome-extension://daily-journal/popup.html</span>
+                        </div>
+                        <div class="mockup-hint">Live Demo</div>
+                    </div>
+
+                    <!-- Journal Extension Window Simulation -->
+                    <div class="journal-card-demo">
+                        <div class="demo-header">
+                            <div class="demo-brand">
+                                <span class="demo-icon">📔</span>
+                                <span class="demo-title">Daily Journal</span>
+                            </div>
+                            <div class="demo-tabs">
+                                <button class="demo-tab active" title="Daily Notes View">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                                </button>
+                                <button class="demo-tab" title="Calendar Overview">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                </button>
+                            </div>
+                            <div class="demo-streak">
+                                <span class="fire-icon">🔥</span>
+                                <span>7 Days</span>
+                            </div>
+                        </div>
+
+                        <div class="demo-editor-header">
+                            <div class="demo-editor-tag">JOURNAL</div>
+                            <h3 id="demo-date-heading">TODAY • WEDNESDAY, OCT 7, 2026</h3>
+                            <span class="demo-saved-tag">Saved ✓</span>
+                        </div>
+
+                        <div class="demo-paper-container">
+                            <div class="demo-spine">
+                                <span></span><span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                            <textarea id="demo-textarea" placeholder="Pour your thoughts here... How was your day?">Reflected on today's progress. Built something meaningful and focused on clean simplicity. Keeping the daily writing streak alive!</textarea>
+                        </div>
+
+                        <div class="demo-footer">
+                            <div class="demo-stats">
+                                <span id="demo-word-count" class="demo-stat-pill">23 words</span>
+                                <span id="demo-char-count" class="demo-stat-pill">144 chars</span>
+                            </div>
+                            <div class="demo-actions">
+                                <button class="demo-btn" title="Copy entry">📋</button>
+                                <button class="demo-btn" title="Export Markdown">📥</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Features Grid -->
+        <section id="features" class="features-section">
+            <div class="section-heading">
+                <div class="pill-tag">Crafted for Thinkers & Creators</div>
+                <h2>Everything you need for mindful daily writing.</h2>
+                <p>Designed with intentional friction reduction so you can write every single day without distraction.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <span>📝</span>
+                    </div>
+                    <h3>Ruled Notebook Canvas</h3>
+                    <p>Authentic ruled notebook lines with red margin guide and precision baseline alignment. Styled to feel like premium physical stationery.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <span>🔥</span>
+                    </div>
+                    <h3>Habit Streak & Progress</h3>
+                    <p>Build momentum with dynamic streak counters, monthly page completion bars, and celebratory harmonic chime feedback when completing entries.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <span>📅</span>
+                    </div>
+                    <h3>Calendar History Feed</h3>
+                    <p>Effortlessly browse past days on a full monthly grid. View entry previews and jump back in time to reminisce with a single click.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <span>📥</span>
+                    </div>
+                    <h3>Multi-Year Markdown Export</h3>
+                    <p>Own your data forever. Export individual years or your entire journal archive into clean, universally portable Markdown (`.md`) files.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <span>🔒</span>
+                    </div>
+                    <h3>100% Private & Offline</h3>
+                    <p>All notes stay strictly on your device using `chrome.storage.local`. No external servers, no cloud tracking, no accounts needed.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <span>🌓</span>
+                    </div>
+                    <h3>Harmonized Light & Dark</h3>
+                    <p>Seamlessly transitions between warm ivory paper and sleek obsidian dark mode tailored for late-night journaling without eye strain.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy & Security Assurance -->
+        <section id="privacy" class="privacy-section">
+            <div class="privacy-card">
+                <div class="privacy-badge">🔒 ZERO DATA COLLECTION GUARANTEE</div>
+                <h2>Your private thoughts belong only to you.</h2>
+                <p>Unlike cloud note apps that scan your entries for advertising or lock your data behind paywalls, Daily Journal operates completely offline on your computer.</p>
+                
+                <div class="privacy-checklist">
+                    <div class="check-item">
+                        <span class="check-icon">✓</span>
+                        <span>No sign-ups or user accounts required</span>
+                    </div>
+                    <div class="check-item">
+                        <span class="check-icon">✓</span>
+                        <span>Zero telemetry, tracking cookies, or analytics</span>
+                    </div>
+                    <div class="check-item">
+                        <span class="check-icon">✓</span>
+                        <span>Offline first — works with zero internet connection</span>
+                    </div>
+                    <div class="check-item">
+                        <span class="check-icon">✓</span>
+                        <span>Instant Markdown exports for easy local backups</span>
+                    </div>
+                </div>
+
+                <a href="privacy.html" class="privacy-link">Read Full Privacy Policy →</a>
+            </div>
+        </section>
+
+        <!-- Frequently Asked Questions -->
+        <section id="faq" class="faq-section">
+            <div class="section-heading">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about Daily Journal.</p>
+            </div>
+
+            <div class="faq-accordion">
+                <details class="faq-item" open>
+                    <summary class="faq-question">
+                        <span>Where is my journal data stored?</span>
+                        <span class="faq-icon">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>All your journal entries, streak milestones, and preferences are stored locally in your browser's secure sandboxed storage (<code>chrome.storage.local</code>). Nothing is ever sent to any external server.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>Can I export my journal entries?</span>
+                        <span class="faq-icon">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Yes! Click on the Habit Streak popover in the extension header to export any year's entries or your complete archive as a beautifully formatted Markdown (<code>.md</code>) file directly to your downloads folder.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>Is the extension completely free?</span>
+                        <span class="faq-icon">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Yes, Daily Journal is 100% free with no ads, no subscriptions, and no paywalled features.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary class="faq-question">
+                        <span>Does it work without an internet connection?</span>
+                        <span class="faq-icon">+</span>
+                    </summary>
+                    <div class="faq-answer">
+                        <p>Absolutely. Because all logic and storage run locally inside your browser package, you can write, reflect, and browse your history anywhere, anytime—even offline in airplane mode.</p>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Final Call to Action -->
+        <section class="cta-banner-section">
+            <div class="cta-banner-card">
+                <h2>Start Your Daily Writing Ritual Today</h2>
+                <p>Join thinkers, developers, and creators reflecting mindfully every day directly inside Chrome.</p>
+                <div class="banner-actions">
+                    <a href="https://chrome.google.com/webstore" target="_blank" class="cta-btn cta-btn-primary">
+                        <span>Install Free from Chrome Web Store</span>
+                        <span class="cta-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <span class="brand-text">Daily Journal</span>
+                <p>Crafted with ❤️ for mindful daily writing & reflection.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#features">Features</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="https://chrome.google.com/webstore" target="_blank">Chrome Web Store</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Daily Journal. All rights reserved. 100% Private & Open Architecture.</span>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Daily Journal Extension Repo
+    url: https://github.com/Mellagui/Daily-Journal-Extension
+    about: Visit the core Chrome Extension codebase repository.
