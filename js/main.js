@@ -3,7 +3,7 @@
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Theme Toggle
+    // 1. Theme Toggle (Light mode by default)
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
     const themeIconSun = document.getElementById('theme-icon-sun');
     const themeIconMoon = document.getElementById('theme-icon-moon');
@@ -13,21 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('journal_site_theme', theme);
 
         if (theme === 'light') {
-            themeIconSun.classList.remove('hidden');
-            themeIconMoon.classList.add('hidden');
+            if (themeIconSun) themeIconSun.classList.add('hidden');
+            if (themeIconMoon) themeIconMoon.classList.remove('hidden');
         } else {
-            themeIconSun.classList.add('hidden');
-            themeIconMoon.classList.remove('hidden');
+            if (themeIconSun) themeIconSun.classList.remove('hidden');
+            if (themeIconMoon) themeIconMoon.classList.add('hidden');
         }
     };
 
-    const savedTheme = localStorage.getItem('journal_site_theme') || 'dark';
+    const savedTheme = localStorage.getItem('journal_site_theme') || 'light';
     applyTheme(savedTheme);
 
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
             applyTheme(nextTheme);
         });
     }
@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const demoWordCount = document.getElementById('demo-word-count');
     const demoCharCount = document.getElementById('demo-char-count');
     const demoDateHeading = document.getElementById('demo-date-heading');
+    const mockupFrame = document.querySelector('.mockup-frame');
 
     // Auto-populate actual current date heading
     if (demoDateHeading) {
@@ -65,4 +66,62 @@ document.addEventListener('DOMContentLoaded', () => {
         demoTextarea.addEventListener('input', updateDemoStats);
         updateDemoStats();
     }
+
+    // 3. Trigger Shake Animation for Interactive Element
+    const triggerDemoAttention = () => {
+        if (mockupFrame) {
+            mockupFrame.classList.remove('shake-attention');
+            // Force DOM reflow to restart CSS animation
+            void mockupFrame.offsetWidth;
+            mockupFrame.classList.add('shake-attention');
+
+            setTimeout(() => {
+                if (demoTextarea) {
+                    demoTextarea.focus();
+                    // Place cursor at end of text
+                    const length = demoTextarea.value.length;
+                    demoTextarea.setSelectionRange(length, length);
+                }
+            }, 300);
+
+            setTimeout(() => {
+                mockupFrame.classList.remove('shake-attention');
+            }, 900);
+        }
+    };
+
+    // 4. Precision Smooth Scroll Navigation Handler (Top = 0 + Navbar Height)
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (!targetId || targetId === '#') return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+
+                const header = document.querySelector('.site-header');
+                const headerHeight = header ? header.offsetHeight : 0;
+
+                // Position the top of the target section exactly below the navigation bar
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                window.scrollTo({
+                    top: Math.max(0, targetPosition),
+                    left: 0,
+                    behavior: 'smooth'
+                });
+
+                // Trigger shake animation if interactive demo is clicked
+                if (targetId === '#interactive-demo') {
+                    triggerDemoAttention();
+                }
+
+                if (history.pushState) {
+                    history.pushState(null, null, targetId);
+                }
+            }
+        });
+    });
 });
+

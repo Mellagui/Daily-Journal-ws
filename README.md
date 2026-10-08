@@ -2,9 +2,9 @@
 
 <div align="center">
 
-### The official marketing showcase, live interactive demo, and documentation portal for the [Simple Daily Journal](https://github.com/Mellagui/Daily-Journal-Extension) Chrome Extension.
+### The official marketing showcase, live interactive demo, and documentation portal for the **Simple Daily Journal** Chrome Extension.
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live%20Deploy-success.svg?style=flat-square&color=22c55e)](https://mellagui.github.io/Daily-Journal-ex-Website/)
+[![Vercel Deploy](https://img.shields.io/badge/Vercel-Live%20Deploy-black.svg?style=flat-square&logo=vercel)](https://daily-journal-ws.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Zero Dependencies](https://img.shields.io/badge/Dependencies-Zero%20(Pure%20HTML%2FCSS%2FJS)-orange.svg?style=flat-square)](#technology-stack)
 [![Theme: Light & Dark](https://img.shields.io/badge/Theme-Synchronized%20Light%20%26%20Dark-purple.svg?style=flat-square)](#key-features)
@@ -16,14 +16,14 @@
 
 ## 📖 Overview
 
-This repository contains the high-converting, modern landing page for **Simple Daily Journal**. It features an interactive in-browser simulation of the extension, dark/light theme switching, full feature showcases, comprehensive FAQ accordion, and an offline-first Privacy Policy page.
+This repository contains the high-converting, modern landing page for **Simple Daily Journal**, deployed live on [Vercel](https://daily-journal-ws.vercel.app/). It features an interactive in-browser simulation of the extension, dark/light theme switching, full feature showcases, comprehensive FAQ accordion, and an offline-first Privacy Policy page.
 
 ---
 
 ## ✨ Key Features
 
 - 💻 **Live Interactive Extension Simulation**: Visitors can test typing, live word/character counts, and interface animations right inside a simulated browser window without installing anything first.
-- 🌓 **Synchronized Theme Switcher**: Full Light & Dark glassmorphic design system matching the extension aesthetic, persisted via `localStorage`.
+- 🌓 **Synchronized Theme Switcher**: Full Light & Dark glassmorphic design system matching the extension aesthetic, persisted via `localStorage` (Light mode by default).
 - 📱 **Mobile & Responsive First**: Fluid responsive typography and layouts designed with CSS Grid and Flexbox.
 - 🛡️ **Dedicated Privacy Policy Page**: Transparent declaration of the offline-first architecture, zero telemetry, and Chrome permission justifications.
 - 🚀 **Blazing Fast & Zero Bloat**: Pure Vanilla HTML5, CSS3, and JavaScript — 0 heavy libraries or build steps.
@@ -40,15 +40,16 @@ Daily-Journal-ex-Website/
 │   │   ├── feature_request.md     # Feature/design proposal template
 │   │   └── config.yml             # Issue template config
 │   ├── workflows/
-│   │   └── deploy.yml             # GitHub Pages continuous deployment workflow
+│   │   └── deploy.yml             # GitHub Actions deployment workflow
 │   └── pull_request_template.md   # Pull request template
 ├── css/
 │   └── style.css                  # Glassmorphic CSS design system & responsive rules
-├── favicon_io/                    # Web favicons, touch icons & webmanifest
-├── icons/                         # Brand icons (16px, 32px, 48px, 128px)
+├── favicons/                      # Web favicons, touch icons & webmanifest
+├── icons/                         # Brand icons (daily-journal-16, 32, 48, 128px)
 ├── js/
 │   └── main.js                    # Theme switcher & interactive demo logic
 ├── .gitignore                     # Git ignore rules
+├── google6df6b15d3c63cd93.html    # Google Search Console domain verification
 ├── CONTRIBUTING.md                # Contribution guidelines
 ├── index.html                     # Main landing page with live interactive demo
 ├── LICENSE                        # MIT License
@@ -79,19 +80,17 @@ Open `http://localhost:3000` in your web browser.
 
 ---
 
-## 🚀 GitHub Pages Deployment
+## 🚀 Live Deployment
 
-This repository includes a GitHub Actions workflow ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) that automatically deploys the landing page to GitHub Pages on every push to the `main` branch.
-
-To enable GitHub Pages in your repository settings:
-1. Go to **Settings** > **Pages** on GitHub.
-2. Under **Build and deployment** > **Source**, choose **GitHub Actions**.
+The website is continuously deployed on **Vercel** with instant global CDN caching:
+- **Live Showcase URL**: [https://daily-journal-ws.vercel.app/](https://daily-journal-ws.vercel.app/)
+- **Privacy Policy**: [https://daily-journal-ws.vercel.app/privacy.html](https://daily-journal-ws.vercel.app/privacy.html)
 
 ---
 
-## 🔗 Related Repositories
+## 🔗 Chrome Web Store
 
-- 📔 **Extension Core**: [Simple Daily Journal Extension](https://github.com/Mellagui/Daily-Journal-Extension)
+- 📔 **Extension**: Simple Daily Journal on Chrome Web Store *(Publishing in progress)*
 
 ---
 
@@ -102,5 +101,5 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ---
 
 <div align="center">
-  <sub>Crafted with ❤️ by <a href="https://github.com/Mellagui">AmineBuilds</a> • Reflect & Grow ☕✨</sub>
+  <sub>Designed & Built by <a href="https://github.com/Mellagui">AmineBuilds</a> • Reflect & Grow ☕✨</sub>
 </div>

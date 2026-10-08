@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -15,20 +15,20 @@
     <meta property="og:title" content="Daily Journal - Minimalist Chrome Extension">
     <meta property="og:description"
         content="Pour your thoughts and build a consistent writing habit directly in your browser. 100% private and offline.">
-    <meta property="og:image" content="icons/icon128.png">
+    <meta property="og:image" content="icons/daily-journal-128.png">
 
     <!-- Twitter Card Meta -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Daily Journal - Minimalist Chrome Extension">
     <meta name="twitter:description" content="Pour your thoughts and build a consistent writing habit directly in your browser. 100% private and offline.">
-    <meta name="twitter:image" content="icons/icon128.png">
+    <meta name="twitter:image" content="icons/daily-journal-128.png">
 
-    <!-- Favicons & Touch Icons (favicon_io) -->
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon_io/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon_io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon_io/favicon-16x16.png">
-    <link rel="shortcut icon" href="favicon_io/favicon.ico">
-    <link rel="manifest" href="favicon_io/site.webmanifest">
+    <!-- Favicons & Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+    <link rel="shortcut icon" href="favicons/favicon.ico">
+    <link rel="manifest" href="favicons/site.webmanifest">
     <meta name="theme-color" content="#18151D">
 
     <link rel="stylesheet" href="css/style.css">
@@ -114,7 +114,7 @@
                 
                 <h1 class="hero-headline">
                     Pour Your Thoughts.<br>
-                    <span class="gradient-text">Build a Daily Writing Ritual.</span>
+                    <span class="gradient-text">One Page a Day.</span>
                 </h1>
 
                 <p class="hero-subtext">
@@ -176,7 +176,27 @@
                     <div class="journal-card-demo">
                         <div class="demo-header">
                             <div class="demo-brand">
-                                <span class="demo-icon">📔</span>
+                                <div class="demo-brand-icon" title="Daily Journal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 128 128" fill="none">
+                                        <rect x="23" y="15" width="70" height="98" rx="14" fill="#C53222" opacity="0.4" />
+                                        <rect x="20" y="12" width="70" height="98" rx="14" fill="url(#coralCoverGradDemoIcon)" stroke="#18151D" stroke-width="5" stroke-linejoin="round" />
+                                        <path d="M82 22C84.2 22 86 23.8 86 26V58C86 60.2 84.2 62 82 62C79.8 62 78 60.2 78 58V26C78 23.8 79.8 22 82 22Z" fill="#FFFFFF" opacity="0.75" />
+                                        <path d="M82 72C84.2 72 86 73.8 86 76V96C86 98.2 84.2 100 82 100C79.8 100 78 98.2 78 96V76C78 73.8 79.8 72 82 72Z" fill="#FFFFFF" opacity="0.75" />
+                                        <rect x="36" y="24" width="40" height="22" rx="6" fill="#F8FAFC" stroke="#18151D" stroke-width="4.5" />
+                                        <line x1="46" y1="32" x2="66" y2="32" stroke="#18151D" stroke-width="3.5" stroke-linecap="round" />
+                                        <line x1="46" y1="38" x2="60" y2="38" stroke="#18151D" stroke-width="3.5" stroke-linecap="round" />
+                                        <line x1="14" y1="28" x2="26" y2="28" stroke="#18151D" stroke-width="6" stroke-linecap="round" />
+                                        <line x1="14" y1="52" x2="26" y2="52" stroke="#18151D" stroke-width="6" stroke-linecap="round" />
+                                        <line x1="14" y1="76" x2="26" y2="76" stroke="#18151D" stroke-width="6" stroke-linecap="round" />
+                                        <line x1="14" y1="98" x2="26" y2="98" stroke="#18151D" stroke-width="6" stroke-linecap="round" />
+                                        <defs>
+                                            <linearGradient id="coralCoverGradDemoIcon" x1="20" y1="12" x2="90" y2="110" gradientUnits="userSpaceOnUse">
+                                                <stop stop-color="#FF6B4E" />
+                                                <stop offset="1" stop-color="#F03D2B" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
                                 <span class="demo-title">Daily Journal</span>
                             </div>
                             <div class="demo-tabs">
@@ -286,33 +306,79 @@
             </div>
         </section>
 
-        <!-- Privacy & Security Assurance -->
+        <!-- Privacy & Trust Center -->
         <section id="privacy" class="privacy-section">
-            <div class="privacy-card">
-                <div class="privacy-badge">🔒 ZERO DATA COLLECTION GUARANTEE</div>
-                <h2>Your private thoughts belong only to you.</h2>
-                <p>Unlike cloud note apps that scan your entries for advertising or lock your data behind paywalls, Daily Journal operates completely offline on your computer.</p>
-                
-                <div class="privacy-checklist">
-                    <div class="check-item">
-                        <span class="check-icon">✓</span>
-                        <span>No sign-ups or user accounts required</span>
+            <div class="privacy-wrapper">
+                <div class="privacy-header">
+                    <div class="pill-tag">
+                        <span class="pill-dot"></span>
+                        <span>PRIVACY & SECURITY GUARANTEE</span>
                     </div>
-                    <div class="check-item">
-                        <span class="check-icon">✓</span>
-                        <span>Zero telemetry, tracking cookies, or analytics</span>
+                    <h2>Your private thoughts belong strictly to you.</h2>
+                    <p>Unlike cloud note apps that scan your entries for advertising or lock your data behind paywalls, Daily Journal is built from the ground up on a 100% offline, local-first architecture.</p>
+                </div>
+
+                <div class="privacy-grid">
+                    <!-- Pillar 1 -->
+                    <div class="privacy-feature-card">
+                        <div class="privacy-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                        </div>
+                        <div class="privacy-card-content">
+                            <span class="privacy-card-tag">Local Storage</span>
+                            <h3>Sandboxed Local Data</h3>
+                            <p>All notes, streaks, and settings are securely stored on your device via <code>chrome.storage.local</code>. Nothing ever touches an external server.</p>
+                        </div>
                     </div>
-                    <div class="check-item">
-                        <span class="check-icon">✓</span>
-                        <span>Offline first — works with zero internet connection</span>
+
+                    <!-- Pillar 2 -->
+                    <div class="privacy-feature-card">
+                        <div class="privacy-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/>
+                                <line x1="1" y1="1" x2="23" y2="23"/>
+                            </svg>
+                        </div>
+                        <div class="privacy-card-content">
+                            <span class="privacy-card-tag">Zero Telemetry</span>
+                            <h3>No Accounts or Tracking</h3>
+                            <p>Zero tracking cookies, zero analytics scripts, and no login required. You write freely without surveillance or data harvesting.</p>
+                        </div>
                     </div>
-                    <div class="check-item">
-                        <span class="check-icon">✓</span>
-                        <span>Instant Markdown exports for easy local backups</span>
+
+                    <!-- Pillar 3 -->
+                    <div class="privacy-feature-card">
+                        <div class="privacy-icon-box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                        </div>
+                        <div class="privacy-card-content">
+                            <span class="privacy-card-tag">Full Ownership</span>
+                            <h3>Universal Markdown Export</h3>
+                            <p>You have 100% ownership of your writing. Download clean, portable Markdown (<code>.md</code>) archives of any year or all years anytime.</p>
+                        </div>
                     </div>
                 </div>
 
-                <a href="privacy.html" class="privacy-link">Read Full Privacy Policy →</a>
+                <div class="privacy-banner-footer">
+                    <div class="privacy-guarantee-text">
+                        <span class="verified-shield">🛡️</span>
+                        <span>Certified compliant with Chrome Web Store Developer Privacy Policies.</span>
+                    </div>
+                    <a href="privacy.html" class="privacy-cta-link">
+                        <span>Read Full Privacy Policy</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -386,7 +452,7 @@
         <div class="footer-container">
             <div class="footer-left">
                 <span class="brand-text">Daily Journal</span>
-                <p>Crafted with ❤️ for mindful daily writing & reflection.</p>
+                <p>Designed for mindful daily writing, focus & reflection.</p>
             </div>
             <div class="footer-links">
                 <a href="#features">Features</a>
