@@ -90,7 +90,7 @@ The website is continuously deployed on **Vercel** with instant global CDN cachi
 
 ## 🔗 Chrome Web Store
 
-- 📔 **Extension**: Simple Daily Journal on Chrome Web Store *(Publishing in progress)*
+- 📔 **Extension**: [Simple Daily Journal on Chrome Web Store](https://chromewebstore.google.com/detail/mglojpkochmhjaahbocinfpfkeamglgm)
 
 ---
 
