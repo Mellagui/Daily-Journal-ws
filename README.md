@@ -38,9 +38,6 @@ Daily-Journal-ex-Website/
 │   ├── ISSUE_TEMPLATE/
 │   │   ├── bug_report.md          # Bug report template
 │   │   ├── feature_request.md     # Feature/design proposal template
-│   │   └── config.yml             # Issue template config
-│   ├── workflows/
-│   │   └── deploy.yml             # GitHub Actions deployment workflow
 │   └── pull_request_template.md   # Pull request template
 ├── css/
 │   └── style.css                  # Glassmorphic CSS design system & responsive rules
